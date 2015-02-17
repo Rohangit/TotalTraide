@@ -1,0 +1,274 @@
+<html>
+<head>
+	<title>Admin Home</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+
+
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+		
+	<script type="text/javascript">
+
+$(function () {
+    $('#linechart').highcharts({
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: 'Monthly Average Temperature'
+        },
+        subtitle: {
+            text: 'Source: WorldClimate.com'
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value + '°';
+                }
+            }
+        },
+        tooltip: {
+            crosshairs: true,
+            shared: true
+        },
+        plotOptions: {
+            spline: {
+                marker: {
+                    radius: 4,
+                    lineColor: '#666666',
+                    lineWidth: 1
+                }
+            }
+        },
+        series: [{
+            name: 'Tokyo',
+            marker: {
+                symbol: 'square'
+            },
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
+                y: 26.5,
+                marker: {
+                    symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
+                }
+            }, 23.3, 18.3, 13.9, 9.6]
+
+        }, {
+            name: 'London',
+            marker: {
+                symbol: 'diamond'
+            },
+            data: [{
+                y: 3.9,
+                marker: {
+                    symbol: 'url(http://www.highcharts.com/demo/gfx/snow.png)'
+                }
+            }, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }]
+    });
+});
+
+
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Quotes by Suburb'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -30,
+                style: {
+                    fontSize: '9px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Count'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Suburb'
+        },
+        series: [{
+            name: 'Population',
+            data: [
+                ['New wouth wales', 23.7],
+                ['Victoria', 16.1],
+                ['Queensland', 14.2],
+                ['South australia', 14.0],
+                ['Western australia', 12.5],
+                ['Tasmania', 12.1]
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                x: 4,
+                y: 10,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif',
+                    textShadow: '0 0 3px black'
+                }
+            }
+        }]
+    });
+});
+
+
+
+	</script>
+
+</head>
+<body>
+	<div data-role="header" data-theme="b">
+			<h1>Electrician Application</h1>
+	</div>
+
+
+
+	<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+		<div style="position: absolute;">
+			<img src="images/logo.png"> 
+		</div>
+		<div>
+
+		</div>
+
+		<div>
+		<div class="ui-grid-b ui-responsive">
+			<div class="ui-block-a"><div class="ui-body ui-body-d"></div></div>
+			<div class="ui-block-b">
+				 <h2>Last 6 months</h2>
+			</div>
+			<div class="ui-block-c"><div class="ui-body ui-body-d"></div></div>
+			</div>
+		</div>
+
+			<div style="">
+				<div class="ui-grid-d ui-" style="margin-left: 222px;">
+						<div class="ui-block-a" style=""><div style="height:60px" class="ui-body ui-body-d">
+							<h2>100</h2>
+						</div></div>
+						<div class="ui-block-b"><div style="height:60px" class="ui-body ui-body-d">
+							<h2>80</h2>
+						</div></div>
+						<div class="ui-block-c"><div style="height:60px" class="ui-body ui-body-d">
+							<h2>72</h2>
+						</div></div>
+						<div class="ui-block-d"><div style="height:60px" class="ui-body ui-body-d">
+							<h2>28</h2>
+						</div></div>
+						<div class="ui-block-e"><div style="height:60px" class="ui-body ui-body-d">
+							<h2>50</h2>
+						</div></div>
+				</div><!-- /grid-c -->
+
+				<div class="ui-grid-d ui-responsive" style="margin-left: 222px;">
+					<div class="ui-block-a"><div style="height:60px" class="ui-body ui-body-d">
+						<button style="background:#FF9900;color:#ffffff;" class="ui-btn">Proposals</button>
+					</div></div>
+					<div class="ui-block-b"><div style="height:60px" class="ui-body ui-body-d">
+						<button style="background:#CCFF33;color:#ffffff;" class="ui-btn">In discusstion</button>
+					</div></div>
+					<div class="ui-block-c"><div style="height:60px" class="ui-body ui-body-d">
+						<button style="background:#00CC66;color:#ffffff;" class="ui-btn">Accepted</button>
+					</div></div>
+					<div class="ui-block-d"><div style="height:60px" class="ui-body ui-body-d">
+						<button style="background:#FF6600;color:#ffffff;" class="ui-btn">Declined</button>
+					</div></div>
+					<div class="ui-block-e"><div style="height:60px" class="ui-body ui-body-d">
+						<button style="background:#0000FF;color:#ffffff;" class="ui-btn">Invoiced</button>
+					</div></div>
+				</div><!-- /grid-c -->
+
+
+
+				<div class="ui-grid-d ui-responsive" style="margin-left: 222px;">
+					<div class="ui-block-a"><div style="height:60px" class="ui-body ui-body-d">
+						<h4>$25,000</h4>
+					</div></div>
+					<div class="ui-block-b"><div style="height:60px" class="ui-body ui-body-d">
+						<h4>$15,000</h4>
+					</div></div>
+					<div class="ui-block-c"><div style="height:60px" class="ui-body ui-body-d">
+						<h4>$9,852</h4>
+					</div></div>
+					<div class="ui-block-d"><div style="height:60px" class="ui-body ui-body-d">
+						<h4>$587</h4>
+					</div></div>
+					<div class="ui-block-e"><div style="height:60px" class="ui-body ui-body-d">
+						<h4>$12,577</h4>
+					</div></div>
+				</div><!-- /grid-c -->
+			</div>
+
+				<div class="ui-grid-a ui-responsive">
+					<div class="ui-block-a"><div class="ui-body ui-body-d">
+						<div id="container" style="min-width: 150px; height: 300px; margin: 0 auto"></div>
+					</div></div>
+					<div class="ui-block-b"><div class="ui-body ui-body-d">
+						<div id="linechart" style="min-width: 150px; height: 300px; margin: 0 auto"></div>
+					</div></div>
+				</div>
+
+
+
+	
+
+
+<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+		<ul>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-top">Home</a></li>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top">Quotes</a></li>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-calendar ui-btn-icon-top">Scheduler</a></li>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-user ui-btn-icon-top">Customers</a></li>
+			<li><a href="viewproduct.html" class="ui-btn ui-btn-inline ui-icon-shop ui-btn-icon-top">Products</a></li>
+		</ul>
+		</div>
+</div>
+
+
+
+</body>
+</html>

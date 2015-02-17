@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Add A New Product</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<script type="text/javascript" src="js/selectwithsearch.js"></script>
+	<script type="text/javascript" src="js/addproduct_qute.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.css">
+	<link rel="stylesheet" type="text/css" href="css/selectwithsearch.css">
+
+	<script type="text/javascript" src="js/progressbar.js"></script>
+ 	<script type="text/javascript" src="js/progressbar.min.js"></script> 	
+
+</head>
+<body>
+	<div data-role="page" id="page-success" data-dom-cache="true"><!-- page-->
+		<div data-role="header" data-theme="b">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" id="back-btn">back</a>
+			<h1>Add New Product</h1>
+			<button class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-delete" id="btn-logout">LOG OUT</button>	
+		</div><!-- /header -->
+
+
+		<div class="ui-content" role="main">
+			<form>
+				<label for="filter-menu">Select Product:</label>
+				<div class="ui-field-contain">
+					<select id="filter-menu">
+						<option value="">Select Product</option>
+					</select>
+				</div>
+
+			<label for="number-1">Quantity: </label>
+			<input type="number" data-clear-btn="false" name="number-1" id="product-qty" value="">
+
+
+			<button class="ui-btn ui-shadow" id="btnadd-product">Add Product</button>
+			</form>
+		</div>
+		<div id="status-dispaly" style="width:40px;height:40px;"></div>
+
+		<div id="status-msg" ></div>
+
+	</div>
+
+</body>
+</html>

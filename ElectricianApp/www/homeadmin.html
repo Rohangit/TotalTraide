@@ -1,0 +1,128 @@
+<html>
+<head>
+	<title>Admin Home</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css"> 
+	<link rel="stylesheet" type="text/css" href="css/styles.css"> 
+	
+
+	<script src='js/jquery.js' type="text/javascript"></script>
+	<script src='js/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+	<script src='js/jquery.rating.js' type="text/javascript" language="javascript"></script>
+	<link href='css/jquery.rating.css' type="text/css" rel="stylesheet"/>
+ 	<link type="text/css" href="/@/js/jquery/ui/jquery.ui.css" rel="stylesheet" />
+ 
+ 	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+ 	<script src="js/homeadmin.js" type="text/javascript"></script>
+
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+		
+ 	<script type="text/javascript" src="js/progressbar.js"></script>
+ 	<script type="text/javascript" src="js/progressbar.min.js"></script>
+
+ 	<script type="text/javascript" src="js/jssor.js"></script>
+    <script type="text/javascript" src="js/jssor.slider.js"></script>
+
+
+   <script>
+        jssor_slider1_starter = function (containerId) {
+            var options = {
+                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $PlayOrientation: 2,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                $DragOrientation: 2,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+                $ArrowNavigatorOptions: {
+                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 1,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$(containerId, options);
+        };
+    </script>
+
+
+         <style>
+            /* jssor slider arrow navigator skin 08 css */
+            /*
+            .jssorb08l              (normal)
+            .jssorb08r              (normal)
+            .jssorb08l:hover        (normal mouseover)
+            .jssorb08r:hover        (normal mouseover)
+            .jssorb08ldn            (mousedown)
+            .jssorb08rdn            (mousedown)
+            */
+            .jssorb08l, .jssorb08r, .jssorb08ldn, .jssorb08rdn
+            {
+            	position: absolute;
+            	cursor: pointer;
+            	display: block;
+                background: url(../img/a08.png) no-repeat;
+                overflow:hidden;
+                opacity: .4; filter:alpha(opacity=40);
+            }
+            .jssorb08l { background-position: -5px -35px; }
+            .jssorb08r { background-position: -65px -35px; }
+            .jssorb08l:hover { background-position: -5px -35px; opacity: .8; filter:alpha(opacity=80); }
+            .jssorb08r:hover { background-position: -65px -35px; opacity: .8; filter:alpha(opacity=80); }
+            .jssorb08ldn { background-position: -5px -35px; opacity: .3; filter:alpha(opacity=30); }
+            .jssorb08rdn { background-position: -65px -35px; opacity: .3; filter:alpha(opacity=30); }
+        </style>   
+
+</head>
+<body>
+	<div data-role="header" data-theme="b">
+		<h1>Electrician Application</h1>
+		<button class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-delete" id="btn-logout">LOG OUT</button>		
+	</div>
+
+	<div class="ui-body ui-body-a ui-corner-all ui-sizeall" id="content-div">
+			<div>
+				<h2></h2>
+			</div>
+			<div>
+
+			</div>
+			<div>
+
+			</div>
+	</div>
+
+	<div id="advetismentdiv" style="margin-top:5px;">
+
+	</div>
+
+<br/><br/><br/><br/>
+
+	<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+				<ul id="my-icon-tabs">
+
+				</ul>
+			</div>
+	</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<html>
+<head>
+	<title>Add Customer</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/alocatesedule.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/customgrids.css">
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+
+	<div data-role="header" data-theme="b">
+
+		<a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" id="back-btn">back</a>
+
+	    <h1>Electrician Application</h1>
+
+	    <button class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-delete" id="btn-logout">LOG OUT</button>	
+	    
+	</div>
+
+<form id="assign-electricans" method="post">
+
+	<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+
+		<div class="ui-grid-b ui-responsive">
+
+		    <div class="ui-block-a" style="width:20%;"><div class="ui-body ui-body-d">
+				<div data-demo-html="true" id="dvDynamic_selectId">
+					<p>Unseduled Qutes</p>
+					<ul data-role="listview" data-filter="true" data-filter-placeholder="Unseduled Qutes" data-inset="true" id="selectqutes" class="ui-listview">
+
+					</ul>
+				</div>
+			</div></div>
+
+
+		    <div class="ui-block-b" style="width:60%;"><div class="ui-body ui-body-d">
+
+<!-- 				<div class="ui-grid-a ui-responsive">
+				    <div class="ui-block-a" style="width:47%;"><div class="ui-body ui-body-d">
+						<label for="text-basic">Estimated Duration</label>
+						<input type="text" name="txt_estimate" id="txt_estimate" value="" placeholder="Estimated Duration"/> 
+						<div id="estimate_error" class="error_message"></div>
+					</div></div>
+				    <div class="ui-block-b" style="width:47%;"><div class="ui-body ui-body-d">
+						<label for="text-basic">Customer Preferred Date</label>
+						<input type="date" name="txt_preferred_date" data-role="date" id="txt_preferred_date" class="hasDatepicker"/>
+						<div id="preferred_error" class="error_message"></div>					
+					</div></div>
+				</div> --><!-- /grid-a -->
+
+					<div id="proccessing">
+
+					</div>
+
+					<div>
+						<ul id="remove-ul" style="margin-left:-3%;width: 89%;min-height: 100px;">
+							<table data-column-popup-theme="a" class="ui-body-d ui-shadow table-stripe ui-responsive ui-table ui-table-columntoggle" id="table-custom-2" data-role="table" id="pro-table">
+
+								<thead>
+									<tr class="ui-bar-d">
+										<th data-priority="2" data-colstart="1" class="ui-table-priority-2">
+											Product Name
+										</th>
+										<th data-colstart="2">
+											Description
+										</th>
+										<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+											Cost Price
+										</th>
+										<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+											Customer Price
+										</th>
+										<th data-priority="5" data-colstart="5" class="ui-table-priority-5">
+											Quantity
+										</th>
+									</tr>
+								</thead>
+								
+									<tbody id="prduct-table">
+
+									</tbody>
+								
+							</table>
+						</ul>
+				</div>
+
+				<div>
+					<table style="margin-left:3%;width: 89%;">
+						<tr>
+							<td><b>Quote Id</b></td>
+							<td><div id="qute-id"></div></td>
+							<td><b>Full name</b></td>
+							<td><div id="name"></div></td>
+							<td><b>Email</b></td>
+							<td><div id="email"></div></td>							
+						</tr>
+						<tr>
+							<td><b>Quote date</b></td>
+							<td><div id="quote-date"></div></td>
+							<td><b>Estimated duration</b></td>
+							<td><div id="est-date"></div></td>
+							<td><b>Labor Charges</b></td>
+							<td><div id="charges"></div></td>	
+						</tr>
+						<tr>
+							<td><b>Sub Total</b></td>
+							<td><div id="s-total"></div></td>
+							<td><b>Total</b></td>
+							<td><div id="total"></div></td>
+							<td><b>Profit</b></td>
+							<td><div id="porfit"></div></td>	
+						</tr>																		
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+
+		    <div class="ui-block-c" style="width:20%;"><div class="ui-body ui-body-d" style="min-width: 200px;">
+
+				<div data-role="controlgroup" data-enhanced="true" class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-a ui-corner-all">
+					<div role="heading" class="ui-controlgroup-label">
+		
+					<legend>Electricians:</legend>
+					</div>
+					<div class="ui-controlgroup-controls ui-shadow" id="electricians-values">
+
+					</div>
+					<div id="electrions_error" class="error_message"></div>
+				</div>
+
+					<button class="ui-btn" id="sedule-submit">Submit</button>
+
+
+			</div></div>
+
+		</div><!-- /grid-b -->
+
+
+
+	</div>
+</form>
+
+	<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+				<ul id="my-icon-tabs">
+
+				</ul>
+			</div>
+	</div>
+
+
+</body>
+</html>

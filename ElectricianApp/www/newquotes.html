@@ -1,0 +1,282 @@
+<html>
+<head>
+	<title>New Quote</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<!-- <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>	-->
+
+
+	<link href="css/select2.css" rel="stylesheet"/>
+
+	<script type="text/javascript" src="js/newqute.js"></script>
+ 
+	<!-- <script src="js/jquery.min.js"></script> -->
+    <script src="js/select2.js"></script>
+
+    <script>
+        $(document).ready(function() { $("#filter-menu").select2(); });
+       $(document).ready(function() { $("#select-customer").select2(); });
+    </script> 	
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.css">
+
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<script type="text/javascript" src="js/progressbar.js"></script>
+ 	<script type="text/javascript" src="js/progressbar.min.js"></script> 
+
+</head>
+<body>
+	<div data-role="header" data-theme="b">
+
+		<a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" id="back-btn">back</a>
+
+		<h1>New Quote</h1>
+
+		<button class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-delete" id="btn-logout">LOG OUT</button>
+		
+</div>
+
+<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+
+	<div style="width:20%;position:absolute;">
+		<div data-demo-html="true">
+		<a href="#" id="btnnew-qute" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:80%;">New quote</a> 
+			<form class="ui-filterable">
+				<input data-type="search" id="filterBasic-input">
+			</form>
+			<p>Recent Quotes</p>
+			<ul id="selectquts" data-input="#filterBasic-input" data-filter-placeholder="Search Qutes" data-filter="true" data-role="listview" class="ui-listview">
+			</ul>
+		</div>
+	</div>
+
+	<div style="width:75%;float: right;position:sticky;">
+
+		<!-- <form id="add-customer-form" method="post"> -->
+
+	 <div data-demo-html="true">
+		<div class="ui-body ui-body-a ui-corner-all">	
+		<div class="ui-grid-a ui-responsive">
+			<div class="ui-block-a"><div class="ui-body ui-body-d">
+
+				<div class="ui-field-contain">
+					<select id="select-customer" name="selectcustomer" data-role="none" style="width:80%;">
+						<option value="">Select Customer</option>
+					</select>
+				</div>
+	
+			</div></div>
+
+			<div class="ui-block-b"><div class="ui-body ui-body-d">
+				<table style="width:100%">
+					<tr>
+						<td><b>Quote Id</b></td>
+						<td><div id="set-quteid">--</div></td>
+					</tr>					
+					<tr>
+						<td><b>Full Name</b></td>
+						<td><div id="set-fullname">--</div></td>
+					</tr>
+					<tr>
+						<td><b>Address</b></td>
+						<td><div id="set-address">--</div></td>
+					</tr>
+					<tr>
+						<td><b>Date</b></td>
+						<td><div id="set-date">--</div></td>
+					</tr>
+					<tr>
+						<td><b>Email</b></td>
+						<td><div id="set-email">--</div></td>
+					</tr>										
+				</table>
+			</div></div>
+	</div>
+<!-- 		<div class="ui-block-c"><div class="ui-body ui-body-d">
+			<div id="set-fullname"><div id="set-address"></div></div></div>
+		</div>
+
+
+ 		 <div class="ui-grid-a ui-responsive">
+					<div class="ui-block-a"><div class="ui-body ui-body-d"><div id="set-quteid"> </div> </div></div>
+					<div class="ui-block-b"><div class="ui-body ui-body-d"><div id="set-date"></div> </div></div>
+		</div> -->
+	 </div>
+	</div> <br/>
+
+		<div data-demo-html="true">
+			<div class="ui-body ui-body-a ui-corner-all">	
+ 
+			<div class="ui-grid-b ui-responsive">
+				<div class="ui-block-a" style="width:34%;">
+					<div class="ui-body ui-body-d">
+							<select id="filter-menu" data-role="none" style="width:95%;">
+								<option value="">Select Product</option>
+							</select>	
+					</div>
+				</div>
+				<div class="ui-block-b" style="width:13%;">
+					<div class="ui-body ui-body-d" style="margin-top:-9%;">
+						<input type="number" data-clear-btn="false" name="number-1" id="product-qty" value="" placeholder="Qty">
+						
+					</div>
+				</div>	
+			    <div class="ui-block-c" style="width:50%;">
+					<div class="ui-body ui-body-d">		
+						<div class="ui-grid-b ui-responsive">	
+							<div class="ui-block-a" style="width:54%;"><div class="ui-body ui-body-d" style="margin-top:-7%;">	
+								<button class="ui-btn ui-shadow" id="btnadd-product">Add Product</button>
+							</div></div>		
+							<div class="ui-block-b"><div class="ui-body ui-body-d">
+								<div id="status-dispaly" style="width:40px;height:40px;"></div>
+							</div></div>
+					</div>
+				</div>
+				</div>				
+			</div><!-- /grid-d -->
+			
+
+<ul id="remove-ul">
+<table data-column-popup-theme="a" class="ui-body-d ui-shadow table-stripe ui-responsive ui-table ui-table-columntoggle" id="table-custom-2" data-role="table" id="pro-table">
+
+				<thead>
+					<tr class="ui-bar-d">
+						<th data-priority="2" data-colstart="1" class="ui-table-priority-2">
+							Product Name
+						</th>
+						<th data-colstart="2">
+							Description
+						</th>
+						<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+							Cost Price
+						</th>
+						<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+							Customer Price
+						</th>
+						<th data-priority="5" data-colstart="5" class="ui-table-priority-5">
+							Quantity
+						</th>
+					<th data-priority="5" data-colstart="5" class="ui-table-priority-5">
+						Action
+					</th>
+					</tr>
+				</thead>
+				
+					<tbody id="prduct-table">
+
+					</tbody>
+				
+			</table>
+			</div>
+		</div> <br/>
+</ul>
+
+	<div data-demo-html="true">
+		 <div class="ui-body ui-body-a ui-corner-all">	
+		 <div class="ui-grid-b ui-responsive">
+	<div class="ui-block-a"	style="width:20%;"><div class="ui-body ui-body-d">
+
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="slidedown" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Add A Note</a> 
+
+		</div></div>
+			<div class="ui-block-b"	style="width:40%;">
+				<div class="ui-body ui-body-d">
+										
+					<!-- <input type="date" data-role="date" id="starting-date" class="hasDatepicker">	preferred_date-->
+					<!-- <input type="date" class="date-input-css" id="starting-date" placeholder="Preferred Date"> -->
+					<input type="date" id="starting-date" placeholder="Qute Date">
+
+					</div>
+			</div>
+						<div class="ui-block-c"	style="width:40%;">
+							<div class="ui-body ui-body-d">
+								<input type="text" placeholder="Estimated Duration (Hours)" name="estimte-duration" id="estimte-duration" >
+						 	</div>
+					</div>					 	
+				 </div>
+
+		<div class="ui-grid-c ui-responsive">
+						<div class="ui-block-a">
+							<div class="ui-body ui-body-d">
+								<button class="ui-btn ui-shadow" id="btn-qute-email" >Email</button>
+								<button class="ui-btn ui-shadow" id="btn-qute-priv" >Cancel</button>
+							</div>
+						</div>
+						<div class="ui-block-b">
+							<div class="ui-body ui-body-d">
+								<button class="ui-btn ui-shadow" id="btn-qute-save">Save</button>
+								<button class="ui-btn ui-shadow" id="btn-qute-allocate">Allocate</button>
+							</div>
+					</div>
+
+					<div class="ui-block-c">
+							<div class="ui-body ui-body-d">
+								<span><b>Sub Total: </b></span><br/>
+								<span><b>GST (10%): </b></span><br/>
+								<span><b>Labor Charges: </b></span><br/>
+								<span><b>Total: </b></span><br/>
+								<span><b>Profit: </b></span><br/>
+							</div>
+					</div> 
+					<div class="ui-block-d">
+						<div class="ui-body ui-body-d" id="total-panel">
+							<span></span><br/>
+							<span></span><br/>
+							<span></span><br/>
+							<span></span><br/>
+							<span></span><br/>
+						</div>	
+					</div>							
+		</div>
+
+		<div id="status-dispaly" style="width:40px;height:40px;margin"></div>
+
+		<div id="status-msg" ></div>
+
+			<!-- </form> -->
+		</div>
+	</div>
+		 </div>
+	 </div>
+
+
+
+	<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+				<ul id="my-icon-tabs">
+
+				</ul>
+			</div>
+	</div>
+
+
+
+<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+    <form>
+
+    </form>
+</div>
+
+</body>
+</html>

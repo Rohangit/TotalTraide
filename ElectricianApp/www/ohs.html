@@ -1,0 +1,183 @@
+<html>
+<head>
+	<title>Add Customer</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/ohs.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body>
+
+	<!--<div data-role="header" data-theme="b">
+	<h1>Electronic app</h1>
+	</div> -->
+
+	<div data-role="header" data-theme="b">
+
+		<a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" id="back-btn">back</a>
+
+		<h1>Electrician Application</h1>
+
+		<button class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-delete" id="btn-logout">LOG OUT</button>
+		
+	</div>
+
+
+
+
+
+	<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+
+	<div style="width:20%;position:absolute;">
+		<div data-demo-html="true">
+
+			<form class="ui-filterable">
+				<input data-type="search" id="filterBasic-input" data-lastval="">
+			</form>
+			<p>Recent Quotes</p>
+			<ul id="selectcustomers" data-input="#filterBasic-input" data-filter="true" data-role="listview" class="ui-listview">
+			</ul>
+		</div>
+	</div>
+
+	<div style="width:75%;height:897px;float: right;">
+
+		<div data-demo-html="true">
+			<div class="ui-body ui-body-a ui-corner-all">	
+				<table data-column-popup-theme="a" class="ui-body-d ui-shadow table-stripe ui-responsive ui-table ui-table-columntoggle" id="table-custom-2" data-role="table">
+
+					<thead>
+						<tr class="ui-bar-d">
+							<th data-priority="2" data-colstart="1" class="ui-table-priority-2">
+								Product Name
+							</th>
+							<th data-colstart="2">
+								Description
+							</th>
+							<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+								Cost Price
+							</th>
+							<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+								Customer Price
+							</th>
+							<th data-priority="5" data-colstart="5" class="ui-table-priority-5">
+								Quantity
+							</th>
+						<th data-priority="5" data-colstart="5" class="ui-table-priority-5">
+							Action
+						</th>
+						</tr>
+					</thead>
+					<tbody id="prduct-table">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+<br/>
+
+
+		<div data-demo-html="true">
+			<div class="ui-body ui-body-a ui-corner-all">	
+				<div class="ui-grid-c ui-responsive">
+
+					 <div class="ui-block-a"><div class="ui-body ui-body-d">
+					 		<label>Electrician's Name:</label> 
+					 </div></div>
+
+					 <div class="ui-block-b"><div class="ui-body ui-body-d">
+					 		<label id="electrician-name">#</label> 
+					 </div></div>
+
+					 <div class="ui-block-c"><div class="ui-body ui-body-d">
+					 		<label>Qute Id:</label> 
+					 </div></div>
+
+					 <div class="ui-block-d"><div class="ui-body ui-body-d">
+					 		<label id="qute-id">#</label> 
+					 </div></div>
+		</div>
+
+
+		<div class="ui-grid-c ui-responsive">
+			 <div class="ui-block-a"><div class="ui-body ui-body-d">
+			 		<label>Customer Name</label> 
+			 </div></div>
+
+			 <div class="ui-block-b"><div class="ui-body ui-body-d">
+			 		<label id="customer-name">#</label> 
+			 </div></div>	
+
+			 <div class="ui-block-c"><div class="ui-body ui-body-d">
+			 		<label>Quotation preferred date</label> 
+			 </div></div>
+
+			 <div class="ui-block-d"><div class="ui-body ui-body-d">
+			 		<label id="quotation-date">#</label> 
+			 </div></div>				 		 		 
+		</div>
+
+		<div class="ui-grid-c ui-responsive">
+			 <div class="ui-block-a"><div class="ui-body ui-body-d">
+			 		<label>Quotation estimated duration</label> 
+			 </div></div>
+
+			 <div class="ui-block-b"><div class="ui-body ui-body-d">
+			 		<label id="quote-estimate">#</label> 
+			 </div></div>	
+
+			 <div class="ui-block-c"><div class="ui-body ui-body-d">
+			 		<label>Quotation total</label> 
+			 </div></div>
+
+			 <div class="ui-block-d"><div class="ui-body ui-body-d">
+			 		<label id="quote-total">#</label> 
+			 </div></div>				 		 		 
+		</div>		
+	</div></div>		
+
+
+			<div class="ui-grid-a ui-responsive">
+				 <div class="ui-block-a"><div class="ui-body ui-body-d">
+				 	<button class="ui-btn ui-shadow" id="btn-reviewd">Reviewed</button>
+				 </div></div>
+				 <div class="ui-block-b"><div class="ui-body ui-body-d">
+				 	<button class="ui-btn ui-shadow" id="btn-accept">Accepted</button>
+				 </div></div>
+			</div>
+
+	</div>
+	</div>
+
+
+
+
+
+	<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+				<ul id="my-icon-tabs">
+
+				</ul>
+			</div>
+	</div>
+</body>
+</html>

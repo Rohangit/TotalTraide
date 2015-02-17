@@ -1,0 +1,71 @@
+<html>
+<head>
+
+	<title>Login</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+
+	<script src='js/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+	<script src='js/jquery.rating.js' type="text/javascript" language="javascript"></script>
+
+	<script type="text/javascript" src="js/login_logic.js"></script> 
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css"> 
+	
+	<link href='css/jquery.rating.css' type="text/css" rel="stylesheet"/>
+ 	<link type="text/css" href="/@/js/jquery/ui/jquery.ui.css" rel="stylesheet" />
+ 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+ 	 <script type="text/javascript" src="js/progressbar.js"></script>
+ 	<script type="text/javascript" src="js/progressbar.min.js"></script>
+
+</head>
+<body>
+	
+	<!--<div data-role="header" data-theme="b">
+	    <h1>Electronic app</h1>
+	</div> -->
+
+  <div class="ui-body ui-body-a ui-corner-all">
+
+  		<center><h3>Login</h3>
+		<img src="images/logo.png" id="login_image"/></center>
+	<form id="login-form" method="post">
+	 	<label for="text-1">User Name</label>
+	 	<input name="username" id="usernameid" value="" type="text" placeholder="User Name" maxlength="20"/>
+	 	<div id="usernam_error" class="error_message"></div>
+
+	    <label for="password-1">Password</label>
+	    <input data-clear-btn="false" name="password" id="passwordid" value="" autocomplete="off" type="password" placeholder="Password" maxlength="20">
+	    <div id="password_error" class="error_message"></div>
+
+		<div id="login-progrss" style="height:25px;">
+			<button class="ui-btn ui-shadow" id="loginbuttonid">Login</button>
+		</div>
+	</form>
+<br/><br/>
+  </div>
+
+<!--
+<div data-theme="b" data-role="footer" data-position="fixed" data-fullscreen="true" >
+	<h1>All Rights Resived</h1>
+</div> -->
+
+
+</body>
+</html>

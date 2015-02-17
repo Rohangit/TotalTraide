@@ -1,0 +1,197 @@
+<html>
+<head>
+	<title>Invoices</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<script type="text/javascript" src="js/selectwithsearch.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.css">
+	<link rel="stylesheet" type="text/css" href="css/selectwithsearch.css">
+
+</head>
+<body>
+
+<div data-role="header" data-theme="b">
+		<a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" id="back-btn">back</a>
+		<h1>Invoices</h1>
+		<button class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-delete" id="btn-logout">LOG OUT</button>	
+</div>
+
+<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+
+	<div style="width:20%;height:600px;position:absolute;">
+		<div data-demo-html="true">
+					<form class="ui-filterable">
+						<input data-type="search" id="filterBasic-input" data-lastval="">
+					</form>
+			<p>Recent Invoices</p>
+					<ul data-input="#filterBasic-input" data-filter-placeholder="Search Invoices" data-filter="true" data-role="listview" class="ui-listview">
+						<li class="ui-li-static ui-body-inherit ui-first-child">John Smith</li>
+						<li class="ui-li-static ui-body-inherit">Andrew Peters</li>
+						<li class="ui-li-static ui-body-inherit">Jo Blogs</li>
+						<li class="ui-li-static ui-body-inherit">Adrian Smith</li>
+					</ul>
+		</div>
+	</div>
+
+	<div style="width:75%;height:600px;float: right;">
+
+	 <div data-demo-html="true">
+		 <div class="ui-body ui-body-a ui-corner-all">	
+		<div class="ui-grid-d ui-responsive">
+			<div class="ui-block-a"><div class="ui-body ui-body-d"><span>Customer Name:</span></div></div>
+			<div class="ui-block-b"><div class="ui-body ui-body-d">Bob Smith</div></div>
+			<div class="ui-block-c"><div class="ui-body ui-body-d">Address:</div></div>
+			<div class="ui-block-c"><div class="ui-body ui-body-d">Sydney 2000</div></div>
+		</div>
+
+
+ 		 <div class="ui-grid-d ui-responsive">
+			<div class="ui-block-a"><div class="ui-body ui-body-d">Quote ID : </div></div>
+			<div class="ui-block-b"><div class="ui-body ui-body-d">Q333232 </div></div>
+			<div class="ui-block-c"><div class="ui-body ui-body-d">Date : </div></div>
+			<div class="ui-block-d"><div class="ui-body ui-body-d">25 April 2015</div></div>
+		</div></div>
+
+
+			</div> <br/>
+
+		<div data-demo-html="true">
+			<div class="ui-body ui-body-a ui-corner-all">	
+
+<table data-column-popup-theme="a" class="ui-body-d ui-shadow table-stripe ui-responsive ui-table ui-table-columntoggle" id="table-custom-2" data-role="table">
+
+	<thead>
+		<tr class="ui-bar-d">
+			<th data-priority="2" data-colstart="1" class="ui-table-priority-2">
+				Product Name
+			</th>
+			<th data-colstart="2">
+				Description
+			</th>
+			<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+				Cost Price
+			</th>
+			<th data-priority="3" data-colstart="3" class="ui-table-priority-3">
+				Customer Price
+			</th>
+			<th data-priority="5" data-colstart="5" class="ui-table-priority-5">
+				Quantity
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Light</td>
+			<td>Downlight</td>
+			<td>12</td>
+			<td>20</td>
+			<td>15</td>
+
+		</tr>
+
+		<tr>
+			<td>Light</td>
+			<td>Downlight</td>
+			<td>12</td>
+			<td>20</td>
+			<td>15</td>
+		</tr>
+	</tbody>
+</table>
+			</div>
+		</div> <br/>
+
+
+	 <div data-demo-html="true">
+		 <div class="ui-body ui-body-a ui-corner-all">	
+		 <div class="ui-grid-b ui-responsive">
+								<div class="ui-block-a"><div class="ui-body ui-body-d">
+
+		</div></div>
+			<div class="ui-block-b">
+				<div class="ui-body ui-body-d">
+					</div>
+						</div>
+						<div class="ui-block-c">
+							<div class="ui-body ui-body-d">
+						 	</div>
+					</div>
+				 </div>
+
+		<div class="ui-grid-d ui-responsive">
+			<div class="ui-block-a">
+				<div class="ui-body ui-body-d">
+					<span>Sub Total: </span></button></div>
+			</div>
+			<div class="ui-block-b">
+				<div class="ui-body ui-body-d"><span>$500</span></div>
+			</div>
+
+			 <div class="ui-block-c">
+				<div class="ui-body ui-body-d"><span>Total:</span></div>
+			</div> 
+			 <div class="ui-block-d">
+				<div class="ui-body ui-body-d"><span>$5000</span></div>
+			</div>										
+		</div>
+
+
+
+		<div class="ui-grid-d ui-responsive">
+			<div class="ui-block-a">
+				<div class="ui-body ui-body-d">
+					<span>Profit: </span></button></div>
+			</div>
+			<div class="ui-block-b">
+				<div class="ui-body ui-body-d"><span>$5,000</span></div>
+			</div>
+
+			 <div class="ui-block-c">
+				<div class="ui-body ui-body-d"><span>Total:</span></div>
+			</div> 
+			 <div class="ui-block-d">
+				<div class="ui-body ui-body-d"><span>$5,500</span></div>
+			</div>										
+		</div>				
+		 </div>
+	 </div>
+	</div>
+</div>
+
+
+
+<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+	<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+		<ul id="my-icon-tabs">
+
+		</ul>
+	</div>
+</div>
+
+
+
+<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+    <form>
+
+    </form>
+</div>
+
+</body>
+</html>

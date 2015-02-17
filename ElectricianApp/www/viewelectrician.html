@@ -1,0 +1,133 @@
+<html>
+<head>
+	<title>Add Customer</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+	
+</head>
+<body>
+
+		<div data-role="header" data-theme="b">
+			<h1>Electrician Application</h1>
+	</div>
+
+	<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+
+		<div style="width:20%;position:absolute;">
+			<div data-demo-html="true">
+						<form class="ui-filterable">
+							<input data-type="search" id="filterBasic-input" data-lastval="">
+						</form>
+				<p>View Products</p>
+						<ul data-input="#filterBasic-input" data-filter="true" data-role="listview" class="ui-listview">
+							<li class="ui-li-static ui-body-inherit ui-first-child">John Smith</li>
+							<li class="ui-li-static ui-body-inherit">Andrew Peters</li>
+							<li class="ui-li-static ui-body-inherit">Jo Blogs</li>
+							<li class="ui-li-static ui-body-inherit">Adrian Smith</li>
+						</ul>
+			</div>
+		</div>
+
+		<div style="width:75%;float: right;">
+
+				<form>
+		<div data-demo-html="true">
+			<div class="ui-body ui-body-a ui-corner-all">
+
+			<a href="addelectrician.html" class="ui-btn">Add Electrician</a>
+
+				<div class="ui-field-contain">
+					<label for="text-1">First Name</label>
+					<input type="email" value="" id="email-1" name="email-1" data-clear-btn="false" placeholder="First Name">
+				</div>
+		
+
+				<div class="ui-field-contain">
+						<label for="text-1">Company Name</label>
+						<input type="email" value="" id="email-1" name="email-1" data-clear-btn="false" placeholder="Company Name">
+				</div>
+
+
+				<div class="ui-field-contain">
+					<label for="text-1">Street Address</label>
+					<input type="email" value="" id="email-1" name="email-1" data-clear-btn="false" placeholder="Street Address">
+				</div>
+
+
+				<div class="ui-field-contain">
+					<label for="text-1">Suburb</label>
+					<input type="text" value="" id="email-1" name="email-1" data-clear-btn="false" placeholder="Suburb">
+				</div>
+
+
+
+				</div>	
+		</div>	 <br/>		 					
+
+
+		<div data-demo-html="true">
+				<div class="ui-body ui-body-a ui-corner-all">	
+					<div class="ui-field-contain">
+						<label for="text-1">Email</label>
+						<input type="email" value="" id="email-1" name="email-1" data-clear-btn="false" placeholder="Email">
+					</div>
+
+
+					<div class="ui-field-contain">
+						<label for="text-1">Mobile</label>
+						<input type="email" value="" id="email-1" name="email-1" data-clear-btn="false" placeholder="Mobile">
+					</div>
+
+
+				 	<div class="ui-field-contain">
+						<label for="text-1">Status</label>
+						<input type="text" value="" id="email-1" name="email-1" data-clear-btn="false" placeholder="Status">
+					</div>			 	
+				</div>
+		</div> <br/>
+
+
+		<div class="ui-grid-a ui-responsive">
+						<div class="ui-block-a"><div class="ui-body ui-body-d">
+
+						</div></div>
+						<div class="ui-block-b"><div class="ui-body ui-body-d">
+							<button class="ui-btn ui-shadow">Edit</button></div></div>
+				</div>
+	
+
+		</form>
+		</div>
+
+	</div>
+
+
+<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+		<ul>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-top">Home</a></li>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top">Quotes</a></li>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-top">Scheduler</a></li>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-user ui-btn-icon-top">Customers</a></li>
+			<li><a href="#" class="ui-btn ui-btn-inline ui-icon-shop ui-btn-icon-top">Products</a></li>
+		</ul>
+		</div>
+</div>
+</body>
+</html>

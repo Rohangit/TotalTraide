@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Add A New Electrician</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<script type="text/javascript" src="js/selectwithsearch.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.css">
+	<link rel="stylesheet" type="text/css" href="css/selectwithsearch.css">
+
+</head>
+<body>
+	<div data-role="page" id="page-success" data-dom-cache="true"><!-- page-->
+		<div data-role="header" data-theme="b">
+			<h1>Add New Electrician</h1>
+		</div><!-- /header -->
+
+	<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+
+		<div style="width:20%;position:absolute;">
+			<div data-demo-html="true">
+						<form class="ui-filterable">
+							<input data-type="search" id="filterBasic-input" data-lastval="">
+						</form>
+				<p>Recent Customers</p>
+						<ul data-input="#filterBasic-input" data-filter="true" data-role="listview" class="ui-listview">
+							<li class="ui-li-static ui-body-inherit ui-first-child">John Smith</li>
+							<li class="ui-li-static ui-body-inherit">Andrew Peters</li>
+							<li class="ui-li-static ui-body-inherit">Jo Blogs</li>
+							<li class="ui-li-static ui-body-inherit">Adrian Smith</li>
+						</ul>
+			</div>
+		</div>
+
+	<div style="width:75%;float: right;">
+
+	<div data-demo-html="true">
+		<div class="ui-body ui-body-a ui-corner-all"> 
+			<form>
+				<div class="ui-field-contain">
+					<label for="text-1">Electrician Name</label>
+						<input type="text" value="" id="text-1" name="text-1" placeholder="First Name">
+				</div>
+
+				<div class="ui-field-contain">
+						<label for="text-1">Electrician Email</label>
+						<input type="text" value="" id="text-1" name="text-1" placeholder="Last Name">
+					</div>
+
+					<div class="ui-field-contain">
+						<label for="text-1">Contact Number</label>
+						<input type="text" value="" id="text-1" name="text-1" placeholder="Company Name">
+					</div>
+					
+					<div class="ui-field-contain">
+						<label for="text-1">Street Address</label>
+						<input type="text" value="" id="text-1" name="text-1" placeholder="Street Address">
+				</div>
+
+				<div class="ui-field-contain">
+						<label for="text-1">Suburb</label>
+						<input type="text" value="" id="text-1" name="text-1" placeholder="Suburb">
+				</div>
+
+				<div class="ui-field-contain">
+						<label for="text-1">State</label>
+						<select name="select-choice-mini">
+								<option value="standard">Select</option>
+								<option value="rush">NSW</option>
+								<option value="express"></option>
+								<option value="overnight"></option>
+						</select>
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="text-1">Postcode</label>
+					<input type="text" value="" id="text-1" name="text-1" placeholder="Postcode">
+				</div> 
+			</div>
+		</div> <br/>
+
+
+		<div data-demo-html="true">
+			<div class="ui-body ui-body-a ui-corner-all"> 
+				<div class="ui-field-contain">
+					<label for="text-1">User Name</label>
+					<input type="text" value="" id="text-1" name="text-1" placeholder="User Name">
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="text-1">Password</label>
+					<input data-clear-btn="false" name="password-1" id="password-1" value="" autocomplete="off" type="password" placeholder="Password">
+				</div>
+			</div>
+		</div>
+
+			<button class="ui-btn ui-shadow">Save</button>
+
+		</form>
+		
+
+	</div>
+</div>
+
+
+	<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+				<ul id="my-icon-tabs">
+
+				</ul>
+		</div>
+	</div>		
+</body>
+</html>

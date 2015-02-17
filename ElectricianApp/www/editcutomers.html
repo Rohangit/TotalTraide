@@ -1,0 +1,222 @@
+<html>
+<head>
+	<title>Edit Customer</title>
+
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script type="text/javascript" src="cordova.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.external-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-svg-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.5.min.css"> 
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	
+
+	<script src='js/jquery.js' type="text/javascript"></script>
+	<script src='js/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+	<script src='js/jquery.rating.js' type="text/javascript" language="javascript"></script>
+	<link href='css/jquery.rating.css' type="text/css" rel="stylesheet"/>
+ 	<link type="text/css" href="/@/js/jquery/ui/jquery.ui.css" rel="stylesheet" />
+ 
+ 	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+
+
+ 	<script src="js/editcustomer.js" type="text/javascript"></script>
+ 	
+</head>
+<body>
+
+		<div data-role="header" data-theme="b">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" id="back-btn">back</a>
+			<h1>Edit Customer</h1>
+			<button class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-delete" id="btn-logout">LOG OUT</button>	
+	</div>
+
+	<div class="ui-body ui-body-a ui-corner-all ui-sizeall">
+
+		<div style="width:20%;position:absolute;">
+			<div data-demo-html="true" id="dvDynamic_selectId">
+				<p>Recent Customers</p>
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Search Customers" data-inset="true" id="ulcutomers">
+					<li><a href="#">No Recent Customers</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div style="width:75%;float: right;">
+
+	<div data-demo-html="true">
+		<div class="ui-body ui-body-a ui-corner-all"> 
+
+			<form id="add-customer-form" method="post">
+
+				<div class="ui-field-contain" id="set-first-name">
+
+					<label for="text-1">First Name</label>
+					<input type="text" value="" id="txt_firstname" name="txt_firstname" placeholder="First Name" maxlength="45">
+
+					<div id="firstname_error" class="error_message"></div>
+
+				</div>
+
+				<div class="ui-field-contain" id="set-last-name">
+
+					<label for="text-1">Last Name</label>
+					<input type="text" value="" id="txt_lname" name="txt_lname" placeholder="Last Name" maxlength="45">
+
+					<div id="lastname_error" class="error_message"></div>
+
+					</div>
+
+					<div class="ui-field-contain" id="set-company-name">
+						<label for="text-1">Company Name</label>
+						<input type="text" value="" id="txt_company" name="txt_company" placeholder="Company Name" maxlength="100">
+
+						<div id="company_error" class="error_message"></div>
+					</div>
+					
+					<div class="ui-field-contain" id="set-street-address">
+
+						<label for="text-1">Street Address</label>
+						<input type="text" value="" id="txt_saddress" name="txt_saddress" placeholder="Street Address" maxlength="300"> 
+						<label for="text-1" style="font-size:12px;">(If different to above)</label>
+
+						<div id="streetaddress_error" class="error_message"></div>
+
+					</div>
+
+						<div class="ui-field-contain" id="set-suburb">
+
+							<label for="text-1">Suburb</label>
+							<input type="text" value="" id="txt_suburb" name="txt_suburb" placeholder="Suburb" maxlength="50">
+						
+							<div id="suburb_error" class="error_message"></div>
+
+						</div>
+
+					<div class="ui-field-contain" id="set-state">
+						<label for="text-1">State</label>
+						<select name="select_state"  id="select_state"></select>
+
+						<div id="state_error" class="error_message"></div>
+					</div>
+
+				<div class="ui-field-contain" id="set-postcode">
+
+					<label for="text-1">Postcode</label>
+					<input type="text" value="" id="txt_postcode" name="txt_postcode" placeholder="Postcode" maxlength="50">
+				
+					<div id="postcode_error" class="error_message"></div>
+
+				</div>
+			</div>
+		</div> <br/>
+
+	<div data-demo-html="true">
+		<div class="ui-body ui-body-a ui-corner-all"> 
+			<div class="ui-field-contain" id="set-site-address">
+				<label for="text-1">Site Address</label>
+				<input type="text" value="" id="txt_siteaddress" name="txt_siteaddress" placeholder="Site Address" maxlength="300">
+			</div>
+
+			<div class="ui-field-contain" id="set-company-suburb">
+				<label for="text-1">Suburb</label>
+				<input type="text" value="" id="txt_site_suburb" name="txt_site_suburb" placeholder="Suburb">
+			 </div>
+
+
+			<div class="ui-field-contain">
+				<label for="text-1">State</label>
+				<select name="select_site_state" id="select_site_state">
+
+				</select>
+			</div>
+
+			<div class="ui-field-contain" id="set-postcode-compny">
+				<label for="text-1">Postcode</label>
+				<input type="text" value="" id="txt-site-postcode-company" name="txt-site-postcode-company" placeholder="Postcode">
+			</div>
+
+		</div>
+	</div> <br/>
+
+	<div data-demo-html="true">
+		<div class="ui-body ui-body-a ui-corner-all">
+      	<div class="ui-field-contain" id="set-email">
+			<label for="text-1">Email</label>
+			<input type="email" value="" id="txt_email" name="txt_email" data-clear-btn="false" placeholder="Email" maxlength="100">
+
+			<div id="email_error" class="error_message"></div>
+	 </div>
+
+
+	<div class="ui-field-contain" id="set-mobile">
+
+		<label for="text-1">Mobile</label>
+		<input type="tel" value="" id="txt_phone" name="txt_phone" data-clear-btn="false" placeholder="Mobile"maxlength="10">
+
+		<div id="mobile_error" class="error_message"></div>
+
+	 </div>
+
+	 <div class="ui-field-contain" id="set-partners-name">
+
+		<label for="text-1">Partners Name</label>
+		<input type="text" value="" id="txt_partnersname" name="txt_partnersname" placeholder="Partners Name">
+	
+		<div id="txt_partnersname" class="error_message"></div>
+
+	</div>
+
+	<div class="ui-field-contain" id="set-note">
+		<label for="text-1">Note</label>
+		<textarea placeholder="Add a note" id="txt_note" name="txt_note" rows="8" cols="40" class="ui-input-text ui-shadow-inset ui-body-inherit ui-corner-all ui-textinput-autogrow" style="height: 52px;"></textarea>
+
+		<div id="txt_note" class="error_message"></div>
+
+	</div>
+
+	<div class="ui-field-contain" id="starVin">
+		<label for="text-1">Rate Customer</label>
+		<input id="rate" name="rate" type="radio" class="star" value="1" />
+		<input id="rate" name="rate" type="radio" class="star" value="2" />
+		<input id="rate" name="rate" type="radio" class="star" value="3" />
+		<input id="rate" name="rate" type="radio" class="star" value="4" />
+		<input id="rate" name="rate" type="radio" class="star" value="5" />
+
+
+		<div id="rate_error" class="error_message"></div>
+     </div>
+		</div>
+	</div>	
+
+	<button class="ui-btn ui-shadow" id="btn-upadte-customer" >Update Customer</button>
+
+				</form>
+
+		</div>
+
+	</div>
+
+
+<div data-role="footer" class="nav-glyphish-example" data-theme="b"	data-position="fixed" data-fullscreen="false">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul id="my-icon-tabs">
+
+			</ul>
+		</div>
+</div>
+</body>
+</html>

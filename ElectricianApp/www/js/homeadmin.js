@@ -1,0 +1,836 @@
+var base_url = "http://leoregis.com/thanuja/electrician/";
+var proposalcount;
+
+var date_obj = new Date();
+
+var monthone, monthtwo, monththree, monthfor, monthfive, monthsix;
+var nww, victoria, queensland, sa, wa, tasmania;
+
+var prop_count, discusstion_count, accept_count, declind_count, invoice_count; 	  
+var prop_value, discusstion_value, accept_value, declind_value, invoice_value;
+
+var loged_user;
+
+var image1, image2, image3, image4, image5;
+var wimage1, wimage2, wimage3;
+
+
+var myplace = base_url+"assets/img/";
+
+$(document).ready(function() {
+
+	var data = new Object();
+
+	data.auth = localStorage.getItem('auth');
+	data.user_id = localStorage.getItem('user_id');
+ 	data.user_type = localStorage.getItem('user_type');	
+
+
+ 	var actuvalmonth =  date_obj.getMonth() +1;
+
+
+	qute_date = date_obj.getFullYear() +"-"+actuvalmonth+"-"+date_obj.getDate();
+
+	getusername();
+	bottom_add();
+
+ 	if(data.user_type == 'admin') {
+
+
+		getproposals();
+		getdiscutions();
+
+		getaccept();
+		getdescline();
+		getinvoiced();
+
+		getstateincome();
+		getmonthlyincome();
+
+
+ 		console.log("admin");
+ 		var x;
+ 		$('#content-div').html('<div style="position: absolute;">'+
+			'<img src="images/logo.png" style="width: 100px;margin: auto 25px;">'+ 
+		'</div>'+
+
+		'<div style="position:absolute;margin:20px auto auto 139px;">'+
+			'<span><b>Name : </b></span>'+'<span>'+loged_user+'</span><br/>'+
+			'<span><b>Type : </b></span>'+'<span>'+localStorage.getItem('user_type')+'</span><br/>'+
+			'<span><b>Date : </b></span>'+'<span>'+qute_date+'</span><br/>'+
+		'</div>'+
+
+		'<div>'+
+		'<div class="ui-grid-b ui-responsive">'+
+			'<div class="ui-block-a"><div class="ui-body ui-body-d"></div></div>'+
+			'<div class="ui-block-b" style="float:right;">'+
+				 '<h2 style="float:right;">Last 6 months</h2>'+
+			'</div>'+
+			'<div class="ui-block-c"><div class="ui-body ui-body-d"></div></div>'+
+			'</div>'+
+		'</div>'+
+
+			'<div>'+
+				'<div class="ui-grid-d ui-" style="margin-top: 30px;">'+
+						'<div class="ui-block-a" style=""><div style="height:60px" class="ui-body ui-body-d">'+
+							'<div id="set-proposal"><center><h2>'+prop_count+'</h2></center></div>'+
+						'</div></div>'+
+						'<div class="ui-block-b"><div style="height:60px" class="ui-body ui-body-d">'+
+							'<div id="set-descussions"><center><h2>'+discusstion_count+'</h2></center></div>'+
+						'</div></div>'+
+						'<div class="ui-block-c"><div style="height:60px" class="ui-body ui-body-d">'+
+							'<div  id="set-accepted"><center><h2>'+accept_count+'</h2></center></div>'+
+						'</div></div>'+
+						'<div class="ui-block-d"><div style="height:60px" class="ui-body ui-body-d">'+
+							'<div id="set-descline"><center><h2 >'+declind_count+'</h2></center></div>'+
+						'</div></div>'+
+						'<div class="ui-block-e"><div style="height:60px" class="ui-body ui-body-d">'+
+							'<div id="set-invoiced"><center><h2>'+invoice_count+'</h2></center></div>'+
+						'</div></div>'+
+				'</div>'+
+
+				'<div class="ui-grid-d ui-responsive">'+
+					'<div class="ui-block-a"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<button style="background:#FF9900;color:#ffffff;" class="ui-btn">Proposals</button>'+
+					'</div></div>'+
+					'<div class="ui-block-b"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<button style="background:#CCFF33;color:#ffffff;" class="ui-btn">In discusstion</button>'+
+					'</div></div>'+
+					'<div class="ui-block-c"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<button style="background:#00CC66;color:#ffffff;" class="ui-btn">Accepted</button>'+
+					'</div></div>'+
+					'<div class="ui-block-d"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<button style="background:#FF6600;color:#ffffff;" class="ui-btn">Declined</button>'+
+					'</div></div>'+
+					'<div class="ui-block-e"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<button style="background:#0000FF;color:#ffffff;" class="ui-btn">Invoiced</button>'+
+					'</div></div>'+
+				'</div>'+
+
+				'<div class="ui-grid-d ui-responsive">'+
+					'<div class="ui-block-a"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<div id="set-val-propsal"><center><h4>$'+prop_value+'</h4></center></div>'+
+					'</div></div>'+
+					'<div class="ui-block-b"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<div id="set-val-desction"><center><h4>$'+discusstion_value+'</h4></center></div>'+
+					'</div></div>'+
+					'<div class="ui-block-c"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<div id="set-val-accept"><center><h4>$'+accept_value+'</h4></center></div>'+
+					'</div></div>'+
+					'<div class="ui-block-d"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<div id="set-val-descline"><center><h4>$'+declind_value+'</h4></center></div>'+
+					'</div></div>'+
+					'<div class="ui-block-e"><div style="height:60px" class="ui-body ui-body-d">'+
+						'<div id="set-val-invoiced"><center><h4>$'+invoice_value+'</h4></center></div>'+
+					'</div></div>'+
+				'</div>'+
+			'</div>'+
+
+				'<div class="ui-grid-a ui-responsive">'+
+					'<div class="ui-block-a"><div class="ui-body ui-body-d">'+
+						'<div id="container" style="min-width: 150px; height: 300px; margin: 0 auto"></div>'+
+					'</div></div>'+
+					'<div class="ui-block-b"><div class="ui-body ui-body-d">'+
+						'<div id="linechart" style="min-width: 150px; height: 300px; margin: 0 auto"></div>'+
+					'</div></div>'+
+				'</div>');
+
+		$('#advetismentdiv').html('<center><div class="advert">'+
+			'<div class="ui-body ui-body-a ui-corner-all advert">'+
+    			'<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px;height: 300px;">'+
+
+        
+			        '<div u="loading" style="position: absolute; top: 0px; left: 0px;">'+
+			           '<div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">'+
+			            '</div>'+
+			            '<div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;top: 0px; left: 0px;width: 100%;height:100%;">'+
+			            '</div>'+
+			        '</div>'+
+
+				'<div class="ui-body ui-body-a ui-corner-all advert">'+
+					'<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;overflow: hidden;" id="image-add">'+
+							'<div><img u="image" src="'+myplace+image1+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image2+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image3+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image4+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image5+'" /></div>'+
+				'</div>'+
+
+				'</div>'+	
+			'</div>'+
+		'</div>'+
+		'</div></center>');
+
+jssor_slider1_starter('slider1_container');
+
+ 		$('#my-icon-tabs').html(
+				 // class mytab is custom default ui-block-a 
+				'<li class="mytab" id="link-home">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-top" >Home</a>'+
+				'</li>'+
+				'<li class="mytab" id="link-quotes">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top" >Quotes</a>'+
+				'</li>'+
+				'<li class="mytab" id="link-ohs">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-top">Invoices</a>'+
+				'</li>'+
+				'<li class="mytab" id="link-shedule">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-calendar ui-btn-icon-top">Scheduler</a>'+
+				'</li>'+
+				'<li class="mytab" id="link-customers">'+
+					'<a href="" class="ui-btn ui-btn-inline ui-icon-user ui-btn-icon-top">Customers</a>'+
+				'</li>'+	
+				'<li class="mytab" id="link-documents">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-shop ui-btn-icon-top">Documents</a>'+
+				'</li>');
+ 	}
+ 	else {
+ 		console.log("non-admin");
+
+ 		side_add();
+
+ 		$('#content-div').html(
+ 		'<div class="ui-grid-b ui-responsive" style="height: 400px;">'+
+
+			'<div class="ui-block-a">'+
+			'<div class="ui-body ui-body-d">'+
+
+	 			'<div>'+
+				'<img src="images/logo.png" style="width: 100px;margin: auto 25px;"/>'+
+				'</div>'+
+
+			'</div></div>'+
+
+		'<div style="position:absolute;margin:20px auto auto 139px;">'+
+			'<span><b>Name : </b></span>'+'<span>'+loged_user+'</span><br/>'+
+			'<span><b>Type : </b></span>'+'<span>'+localStorage.getItem('user_type')+'</span><br/>'+
+			'<span><b>Date : </b></span>'+'<span>'+qute_date+'</span><br/>'+
+		'</div>'+
+
+
+
+			'<div class="ui-block-b">'+
+			'<div class="ui-body ui-body-d">'+
+
+		'<div>'+
+		'<div class="ui-grid-a ui-responsive">'+
+				'<div class="ui-block-a" style="100px;">'+
+					'<div class="ui-body ui-body-d">'+
+						'<button class="ui-btn ui-btn-inline" id="btn-clock-in">Clock In </button>'+
+					'</div>'+
+				'</div>'+
+			'<div class="ui-block-b" style="100px;"><div class="ui-body ui-body-d">'+
+				'<button class="ui-btn ui-btn-inline" id="btn-clock-out">Clock Out</button>'+
+				'<div id="status-msg" style="float:left;"></div>'+
+				'<div id="progrss-info" style="width:40px;height:40px;float:left;"></div>'+
+			'</div></div>'+
+			'</div>'+
+		'</div>'+
+		'</div></div>'+
+
+
+		'<div class="ui-block-c">'+
+		'<div class="ui-body ui-body-c">'+
+
+			'<div class="ui-body ui-body-a ui-corner-all second-ad">'+
+'<center><div class="advert-width">'+
+			'<div class="ui-body ui-body-a ui-corner-all advert-width">'+
+    			'<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px;height: 600px;">'+
+
+        
+			        '<div u="loading" style="position: absolute; top: 0px; left: 0px;">'+
+			           '<div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">'+
+			            '</div>'+
+			            '<div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;top: 0px; left: 0px;width: 100%;height:100%;">'+
+			            '</div>'+
+			        '</div>'+
+
+				'<div class="ui-body ui-body-a ui-corner-all advert-width">'+
+					'<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 360px; height: 360px;overflow: hidden;">'+
+							'<div><img u="image" src="'+myplace+wimage1+'" /></div>'+
+							'<div><img u="image" src="'+myplace+wimage2+'" /></div>'+
+							'<div><img u="image" src="'+myplace+wimage3+'" /></div>'+
+				'</div>'+
+
+		'</div>'+	
+	'</div>'+
+'</div>'+
+'</div></center>'+
+			'</div>'+
+
+			'</div></div>'+
+
+  '<div class="ui-body ui-body-a ui-corner-all" style="width:61%; height:200px; position: absolute; margin-top:12%;">'+
+'<h4>Scheduled qutes</h4>'+
+     '<div id="sedule-qutes">'+
+
+'<table  style="width:100%;"data-role="table" id="table-custom-2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">'+
+    '<thead>'+
+      '<tr class="ui-bar-d">'+
+        '<th >Quotation Id</th>'+
+        '<th>Customer</th>'+
+        '<th>Date</th>'+
+        '<th>Duration</th>'+
+		'<th>Address</th>'+
+      '</tr>'+
+    '</thead>'+
+    '<tbody id="qute-details">'+
+
+    '</tbody>'+
+  '</table>'+
+
+	'</div>'+
+  '</div><br/>'+
+
+		'</div>');
+
+		$('#advetismentdiv').html('<center><div>'+
+			'<div class="ui-body ui-body-a ui-corner-all advert">'+
+    			'<div id="slider2_container" style="position: relative; top: 0px; left: 0px; width: 600px;height: 300px;">'+
+
+        
+			        '<div u="loading" style="position: absolute; top: 0px; left: 0px;">'+
+			           '<div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">'+
+			            '</div>'+
+			            '<div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;top: 0px; left: 0px;width: 100%;height:100%;">'+
+			            '</div>'+
+			        '</div>'+
+
+				'<div class="ui-body ui-body-a ui-corner-all advert">'+
+					'<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px;overflow: hidden;">'+
+							'<div><img u="image" src="'+myplace+image1+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image2+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image3+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image4+'" /></div>'+
+							'<div><img u="image" src="'+myplace+image5+'" /></div>'+
+				'</div>'+
+
+				'</div>'+	
+			'</div>'+
+		'</div>'+
+		'</div></center>'
+		);
+
+jssor_slider1_starter('slider1_container');
+jssor_slider1_starter('slider2_container');
+
+		$('#my-icon-tabs').html(
+				 // class mytab is custom default ui-block-a 
+				'<li class="ui-block-a" id="link-home">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-top">Home</a>'+
+				'</li>'+
+
+				'<li class="ui-block-b" id="link-quotes">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top">Quotes</a>'+
+				'</li>'+
+
+				'<li class="ui-block-c" id="link-shedule">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-calendar ui-btn-icon-top">Scheduler</a>'+
+				'</li>'+
+
+				'<li class="ui-block-d" id="link-customers">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-user ui-btn-icon-top">Customers</a>'+
+				'</li>'+	
+
+				'<li class="ui-block-e" id="link-documents">'+
+					'<a href="#" class="ui-btn ui-btn-inline ui-icon-shop ui-btn-icon-top">Documents</a>'+
+				'</li>');
+ 	}
+
+ 		get_seduled_qutes();
+
+$(function () {
+	var monthsname = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	var d = new Date();
+
+	$('#linechart').highcharts({
+	  chart: {
+		type: 'spline'
+	  },
+	  title: {
+		text: 'Income by month'
+	  },
+	  subtitle: {
+		text: ''
+	  },
+	  xAxis: {
+		categories: [monthsname[d.getMonth()], monthsname[d.getMonth()+1], monthsname[d.getMonth()+2], monthsname[d.getMonth()+3], monthsname[d.getMonth()+4], monthsname[d.getMonth()+5]]
+	  },
+	  yAxis: {
+		title: {
+			text: 'Income AUD'
+		},
+		labels: {
+			formatter: function () {
+			  return this.value;
+			}
+		}
+	  },
+	  tooltip: {
+		crosshairs: true,
+		shared: true
+	  },
+	  plotOptions: {
+		spline: {
+			marker: {
+			  radius: 4,
+			  lineColor: '#666666',
+			  lineWidth: 1
+			}
+		}
+	  },
+	  series: [{
+		name: '6 months',
+		marker: {
+			symbol: 'square'
+		},
+		data: [monthone, monthtwo, monththree, monthfor, monthfive, monthsix]
+
+	  }]
+	});
+});
+
+
+
+$(function () {
+	$('#container').highcharts({
+	  chart: {
+		type: 'column'
+	  },
+	  title: {
+		text: 'Quotes by state'
+	  },
+	  subtitle: {
+		text: ''
+	  },
+	  xAxis: {
+		type: 'category',
+		labels: {
+			rotation: -30,
+			style: {
+			  fontSize: '9px',
+			  fontFamily: 'Verdana, sans-serif'
+			}
+		}
+	  },
+	  yAxis: {
+		min: 0,
+		title: {
+			text: 'Count'
+		}
+	  },
+	  legend: {
+		enabled: false
+	  },
+	  tooltip: {
+		pointFormat: 'Suburb'
+	  },
+	  series: [{
+		name: 'Population',
+		data: [
+			['New wouth wales', nww],
+			['Victoria', victoria],
+			['Queensland', queensland],
+			['South australia', sa],
+			['Western australia', wa],
+			['Tasmania', tasmania]
+		],
+		dataLabels: {
+			enabled: true,
+			rotation: -90,
+			color: '#FFFFFF',
+			align: 'right',
+			x: 4,
+			y: 10,
+			style: {
+			  fontSize: '13px',
+			  fontFamily: 'Verdana, sans-serif',
+			  textShadow: '0 0 3px black'
+			}
+		}
+	  }]
+	});
+});
+
+//actions
+	$( "#link-customers" ).bind( "click", function(event, ui) {
+		window.location = "viewcustomer.html";
+	});
+
+	$( "#link-quotes" ).bind( "click", function(event, ui) {
+		window.location = "newquotes.html";
+	});
+
+	$( "#link-viewproduct" ).bind( "click", function(event, ui) {
+		window.location = "viewproduct.html";
+	});	
+
+	$( "#link-ohs" ).bind( "click", function(event, ui) {
+		window.location = "ohs.html";
+	});	
+
+	$( "#link-home" ).bind( "click", function(event, ui) {
+		window.location = "homeadmin.html";
+	});	
+
+	$("#link-shedule").bind("click", function(event, ui) {
+		window.location = "alocatesedule.html";
+	});
+
+
+	$( "#btn-logout" ).bind("click", function(event, ui) {
+	
+		window.localStorage.removeItem("auth");
+		window.localStorage.removeItem("user_id");
+		window.localStorage.removeItem("user_type");
+
+		window.location = "login.html";
+	});
+
+
+	//bottom_add();
+
+
+	$( "#btn-clock-in" ).bind( "click", function(event, ui) {
+		$("#status-msg").html("<h4>Please wait</h4>");
+
+			var circle = new ProgressBar.Circle('#progrss-info', {
+				color: '#FCB03C',
+				strokeWidth: 5,
+				trailWidth: 1,
+				text: {
+					value: '0'
+				},
+				step: function(state, bar) {
+					bar.setText((bar.value() * 100).toFixed(0));
+				}
+			});
+
+			
+
+		try {
+			$.post(base_url+"home/input_clockin", data, function(data_out) {
+
+				obj = JSON.parse(data_out);
+
+				$.each(obj, function(homeadmin, getsatus) {
+					if(getsatus.validation)	{
+						circle.animate(1, function() {
+							//circle.animate(0);
+							alert("Successfuly clock in.");
+							$("#status-msg").html("");
+							$("#progrss-info").html("");
+						});
+					}
+				});
+			});
+		}
+		catch(err) {
+
+		}
+	});	
+
+	$( "#btn-clock-out" ).bind( "click", function(event, ui) {
+		$("#status-msg").html("<h4>Please wait</h4>");
+
+			var circletwo = new ProgressBar.Circle('#progrss-info', {
+				color: '#FCB03C',
+				strokeWidth: 5,
+				trailWidth: 1,
+				text: {
+					value: '0'
+				},
+				step: function(state, bar) {
+					bar.setText((bar.value() * 100).toFixed(0));
+				}
+			});
+
+			$.post(base_url+"home/input_clockout", data, function(data_out) {	
+				obj = JSON.parse(data_out);
+
+				$.each(obj, function(homeadmin, getsatus) {
+						if(getsatus.validation)	{
+							circletwo.animate(1, function() {
+								//circle.animate(0);
+								alert("Succesfuly clock out.");
+								$("#status-msg").html("");
+								$("#progrss-info").html("");
+							});
+						}
+					});				
+				});
+
+		});	
+	});
+
+
+function getproposals() {
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+	$.ajax({url:base_url+"reports/callpropsals", type: "POST", data: datapass, async:false,  success:function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			prop_count = getvalues.count;
+			prop_value = getvalues.total;
+
+			if(prop_value == null) {
+				prop_value = '0';
+			}
+
+		});
+
+	}});
+}
+
+function getdiscutions() {
+
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+	$.ajax({url:base_url+"reports/calldescutions", type: "POST", data: datapass, async: false,  success:function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			discusstion_count = getvalues.count;
+			discusstion_value = getvalues.total;
+
+			if(discusstion_value == null) {
+				discusstion_value = '0';
+			}
+
+		});
+
+	}});
+}
+
+function getaccept() {
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+
+	$.ajax({url:base_url+"reports/callaccepted", type: "POST", data: datapass, async: false,  success:function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			accept_count = getvalues.count;
+			accept_value = getvalues.total;
+
+			if(accept_value == null) {
+				accept_value = '0';
+			}
+
+		});
+
+	}});
+}
+
+function getdescline() {
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+	$.ajax({url:base_url+"reports/calldeclined", type: "POST", data: datapass, async: false,  success: function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			declind_count = getvalues.count;
+			declind_value = getvalues.total;
+
+			if(declind_value == null) {
+				declind_value = '0';
+			}
+
+		});
+
+	}});
+}
+
+function getinvoiced() {
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+
+	$.ajax({url:base_url+"reports/callinvoices", type: "POST", data: datapass, async: false,  success: function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			invoice_count = getvalues.count;
+			invoice_value = getvalues.total;
+
+			if(invoice_value == null) {
+				invoice_value = '0';
+			}
+
+
+		});
+	}});
+}
+
+function getmonthlyincome() {
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+
+	$.ajax({url:base_url+"reports/call_montly_income", type: "POST", data: datapass, async: false,  success:function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			monthone = parseInt(getvalues.month1, 10);
+			monthtwo = parseInt(getvalues.month2, 10);  
+			monththree = parseInt(getvalues.month3, 10); 
+			monthfor = parseInt(getvalues.month4, 10);
+			monthfive = parseInt(getvalues.month5, 10);
+			monthsix = parseInt(getvalues.month6, 10);
+
+		});
+	}});
+}
+
+
+function getstateincome() {
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+
+	$.ajax({url:base_url+"reports/call_suberb_income", type: "POST", data:datapass, async: false,  success:function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			nww = parseInt(getvalues.state1, 10);
+			victoria = parseInt(getvalues.state2, 10); 
+			queensland = parseInt(getvalues.state3, 10);
+			sa = parseInt(getvalues.state4, 10);
+			wa = parseInt(getvalues.state5, 10);
+			tasmania = parseInt(getvalues.state6, 10);
+		});
+	}});	
+}
+
+
+function getusername() {
+
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+
+
+	$.ajax({url:base_url+"customers/select_name", type: "POST", data: datapass, async: false, success:function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			if(localStorage.getItem('user_type') == 'admin') {
+				loged_user = getvalues.admin_name;
+			}
+			else {
+				loged_user = getvalues.electrician_name;
+			}
+		});
+	}});	
+}
+
+function bottom_add() {
+	try {
+		$.ajax({url:base_url+"advertisment/get_image", async: false, success:function(data_out) {
+
+			obj = JSON.parse(data_out);
+
+			$.each(obj, function(homeadmin, getimage) {
+				image1 =  getimage.image1;
+				image2 =  getimage.image2;
+				image3 =  getimage.image3;
+				image4 =  getimage.image4;
+				image5 =  getimage.image5;
+			});
+		}});
+	}
+	catch(err) {
+
+	}
+
+
+	if(image1 == null) {
+		image1 = "phoyothree.jpg";
+	}
+
+	else if(image2 == null) {
+		image2 = "phoyothree.jpg";
+	}
+
+	else if(image3 == null) {
+		image3 = "phoyothree.jpg";
+	}
+
+	else if(image4 == null) {
+		image4 = "phoyothree.jpg";
+	}
+
+	else if(image5 == null) {
+		image5 = "phoyothree.jpg";
+	}
+}
+
+function side_add() {
+	try {
+		$.ajax({url:base_url+"advertisment/get_image_width", async: false, success:function(data_out) {
+
+			obj = JSON.parse(data_out);
+
+			$.each(obj, function(homeadmin, getimage) {
+				wimage1 =  getimage.image1;
+				wimage2 =  getimage.image2;
+				wimage3 =  getimage.image3;
+			});
+		}});
+	}
+	catch(err) {
+
+	}	
+}
+
+function get_seduled_qutes() {
+	var datapass = new Object();
+
+	datapass.auth = localStorage.getItem('auth');
+	datapass.user_id = localStorage.getItem('user_id');
+ 	datapass.user_type = localStorage.getItem('user_type');	
+
+	$.ajax({url:base_url+"home/getsheduledcotes", type: "POST", data: datapass, async: false, success:function(data_out) {
+		obj = JSON.parse(data_out);
+
+		$.each(obj, function(homeadmin, getvalues) {
+			$("#qute-details").append("<tr><td>"+getvalues.quotation_id+"</td> <td>"+getvalues.customer_first_name+"</td> <td>"+getvalues.quotation_preferred_date+"</td> <td>"+getvalues.quotation_estimated_duration+"</td> <td>"+getvalues.customer_street_address+" <a href='#'> Map</a></td></tr>");
+		});
+	}});	
+}

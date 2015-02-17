@@ -1,0 +1,28 @@
+.mytab {
+	width: 16.6% !important;  /* 12.5% for 8 tabs wide */
+	clear: none !important;  /* Prevent line break caused by ui-block-a */
+	float: left;
+}
+
+.error_message {
+	font-size: 12px;
+	color: #ff0000;
+}
+
+.list-custom-design {
+	display: block;
+	font-weight: normal;
+	padding: 7px;
+}
+
+.advert {
+	height: 85px;
+}
+
+.second-ad {
+	height: 300px;
+}
+
+.advert-width {
+	height: 300px;
+}
